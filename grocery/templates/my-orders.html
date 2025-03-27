@@ -1,0 +1,31 @@
+{% extends 'header.html'%}
+{% load static %}
+{% block 'content' %}
+<div class="container">
+
+     <table class="table">
+        <thead>
+        <tr>
+        <th>Product Name</th>
+        <th>Product Image</th>
+        <th>Product Price</th>
+        <th>Order Date</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for o in order %}
+        <tr>
+            <td>{{o.product.name}}</td>
+            <td><a href="../products/{{o.product.id}}">
+                <img src="{{o.product.images.url}}" height="100" width="100">
+            </a></td>
+            <td>{{o.product.mrp}}</td>
+            <td>{{o.order_date}}</td>
+        </tr>
+     
+    {% endfor %}
+</tbody>
+</table>
+
+</div>
+{% endblock %}
